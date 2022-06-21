@@ -9,13 +9,14 @@ import java.util.List;
         allocationSize = 23,
         name = "editora_seq",
         sequenceName = "editora_seq")
-//@TableGenerator(name = "minha_tabela2",
+// @TableGenerator(name = "minha_tabela2",
 //        initialValue = 1,
 //        allocationSize = 25,
 //        table = "tabela_geradora",
 //        pkColumnName = "key",
 //        pkColumnValue = "editoras",
 //        valueColumnName = "value")
+
 public class Editora {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "editora_seq")
@@ -23,7 +24,7 @@ public class Editora {
     private String localDeOrigem;
     private String nomeFantasia;
     @ElementCollection
-    @CollectionTable(name = "contatos")
+    @CollectionTable(name = "Contatos")
     private List<String> contatos = new ArrayList<>();
     public Editora(){}
     public Editora(String localDeOrigem,String nomeFantasia) {
@@ -35,6 +36,13 @@ public class Editora {
         this.codigo = codigo;
         this.localDeOrigem = localDeOrigem;
         this.nomeFantasia = nomeFantasia;
+    }
+
+    public void adicionarContato(String contato){
+        this.contatos.add(contato);
+    }
+    public void removerContato(String contato){
+        this.contatos.remove(contato);
     }
     public int getCodigo() {
         return codigo;
@@ -53,9 +61,6 @@ public class Editora {
     }
     public void setNomeFantasia(String nomeFantasia) {
         this.nomeFantasia = nomeFantasia;
-    }
-    public void a(String c){
-        this.contatos.add(c);
     }
 }
 

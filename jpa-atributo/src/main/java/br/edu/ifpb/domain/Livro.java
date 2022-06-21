@@ -32,50 +32,55 @@ public class Livro implements Serializable {
     private byte[] capa;
     @Transient
     private ImageFromFile image;
-
-//    private ISBN isbn; //@Embedded
+    @Embedded
+    @AttributeOverride(name = "numero", column = @Column(name = "isbn2"))
+    private ISBN isbn; //@Embedded
 
     public Livro() {
     }
-
     public Livro(String titulo) {
         this.titulo = titulo;
     }
-
-    public void carregarImagem(String path) throws IOException {
+    public void carregarImagem(String path) {
         image = new ImageFromFile(path);
         setCapa(image.toBytes());
     }
-
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
-
     public String getTitulo() {
         return titulo;
     }
-
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-
     public String getResumo() {
         return resumo;
     }
-
     public void setResumo(String resumo) {
         this.resumo = resumo;
     }
-
     public byte[] getCapa() {
         return capa;
     }
-
     public void setCapa(byte[] capa) {
         this.capa = capa;
     }
+    public ISBN getIsbn() {
+        return isbn;
+    }
+    public void setIsbn(ISBN isbn) {
+        this.isbn = isbn;
+    }
 }
+
+
+
+
+
+
+
+

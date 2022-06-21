@@ -4,6 +4,9 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.edu.ifpb.domain.Editora</class>
     <class>br.edu.ifpb.domain.Livro</class>
+    <class>br.edu.ifpb.domain.Emprestimo</class>
+    <class>br.edu.ifpb.domain.chaves.Telefone</class>
+    <class>br.edu.ifpb.infra.jpa.convert.ConverterLocalDate</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/dac-jpa-20221"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

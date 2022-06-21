@@ -14,8 +14,12 @@ public class ImageFromFile implements Serializable {
     public ImageFromFile(Path path) {
         this.path = path;
     }
-    public byte[] toBytes() throws IOException {
-        return Files.readAllBytes(path);
+    public byte[] toBytes()  {
+        try {
+            return Files.readAllBytes(path);
+        } catch (IOException e) {
+            return new byte[0];
+        }
     }
 
 }
