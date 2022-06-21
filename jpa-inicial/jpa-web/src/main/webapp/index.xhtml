@@ -8,7 +8,19 @@
     </h:head>
     <h:body>
         <h:form id="formulario">
-           
+            Código: <h:inputText value="#{controladorDeEditoras.editora.codigo}"/>
+            Nome: <h:inputText value="#{controladorDeEditoras.editora.nomeFantasia}"/>
+            Local: <h:inputText value="#{controladorDeEditoras.editora.localDeOrigem}"/>
+            <h:commandButton value="+" action="#{controladorDeEditoras.salvar()}"/>
+
+            <h:dataTable var="editora" value="#{controladorDeEditoras.todasAsEditoras()}">
+                <h:column>#{editora.codigo}</h:column>
+                <h:column>#{editora.nomeFantasia}</h:column>
+                <h:column>#{editora.localDeOrigem}</h:column>
+                <h:column>
+                    <h:commandButton value="-" action="#{controladorDeEditoras.remover(editora)}"/>
+                </h:column>
+            </h:dataTable>
         </h:form>
     </h:body>
 </html>
